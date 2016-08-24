@@ -1,0 +1,6 @@
+This gist explains how a graph database can help for HR analytics. There are two files included:
+- load the data.cql: this file contains the cypher statements that load the data into neo4j
+- query the data.cql: this file has some sample queries that serve to demonstrate some of the concepts.
+Hope this is useful.
+
+Rik
