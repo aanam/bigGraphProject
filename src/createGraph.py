@@ -4,13 +4,13 @@ fin = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/tes
 data = fin.readlines()
 
 print len(data)
+
+data1 = filter(lambda a: a != data[1], data)
+print len(data1)
 driver = GraphDatabase.driver("bolt://localhost", auth=basic_auth("neo4j", "neo"))
 session = driver.session()
-
-session.run(data)
-result = session.run("match (n) return n")
-for i in result:
-    print i
+for query in data1:
+    session.run(query)
 session.close()
 # session.run("CREATE (a:Person {name:'Arthur', title:'King'})")
 #
