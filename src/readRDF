@@ -1,18 +1,60 @@
 import rdflib
 import rdf
+import re
+fin = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/test_movie.nt', 'r')
+fout = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/test_movie.cql', 'w')
+
+data = fin.readlines()
+
+for line in data:
+    triple = line.replace("http://","").replace("/", "_").replace(".", "_").split('>')
+    sub = triple[0].strip().replace("<", "")
+    pre = triple[1].strip().replace("<", "")
+    obj = triple[2].strip().replace("<", "").replace(".", "")
+
+    print sub, pre, obj
+    if (obj.find('www') > -1):
+        fout.write("MERGE (source:"+ sub + ")-[:"+ pre + "]-(target:"+ obj + ")")
+        fout.write("\n")
+        fout.write("WITH 1 as dummy")
+        fout.write("\n")
+    else:
+        fout.write("MERGE (source:" + sub + " {" + pre + ":" + obj + "}")
+        fout.write("\n")
+        fout.write("WITH 1 as dummy")
+        fout.write("\n")
 
 
-# parser=rdf.Parser(name="ntriples") #as name for parser you can use ntriples, turtle, rdfxml, ...
-# model=rdf.Model()
-# stream=parser.parse_into_model(model,"/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/bio2rdf.rdf")
-# for triple in model:
-#     print triple.subject, triple.predicate, triple.object
 
 
-graph = rdflib.Graph("Sleepycat")
-graph.open("store", create=True)
-graph.parse("/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank.nq")
-#
-# # print out all the triples in the graph
-# for subject, predicate, object in graph:
-#     print subject, predicate, object
+
+
+
+
+
+
+
+
+
+
+
+'''
+graph = rdflib.Graph()
+#graph.open("store", create=True)
+graph.parse("/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/elvisimp.rdf")
+
+#print out all the triples in the graph
+for subject, predicate, object in graph:
+    print 'sub:', subject
+    print 'pre:', predicate
+    print 'obj:', object
+    print "-------------------------"
+
+import RDF
+
+parser=rdf.Parser(name="ntriples") #as name for parser you can use ntriples, turtle, rdfxml, ...
+model=rdf.Model()
+stream=parser.parse_into_model(model,"/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/bio2rdf.rdf")
+for triple in model:
+    print triple.subject, triple.predicate, triple.object
+'''
