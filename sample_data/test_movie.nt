@@ -1,0 +1,12 @@
+<http://www.w3.org/2002/07/vincent_donofrio> <http://www.example.org/starred_in> <http://www.w3.org/2002/07/law_order_criminal_intent> .
+<http://www.w3.org/2002/07/the_thirteenth_floor> <http://www.example.org/is_a> <http://www.w3.org/2002/07/movie> .
+<http://www.w3.org/2002/07/law_order_criminal_intent> <http://www.example.org/is_a> <http://www.w3.org/2002/07/tv_show> .
+<http://www.w3.org/2002/07/vincent_donofrio> <http://www.example.org/starred_in> <http://www.w3.org/2002/07/the_thirteenth_floor> .
+<http://www.w3.org/2002/07/chris_noth> <http://www.example.org/starred_in> <http://www.w3.org/2002/07/law_order_criminal_intent> .
+<http://www.w3.org/2002/07/the_thirteenth_floor> <http://www.example.org/similar_plot_as> <http://www.w3.org/2002/07/the_matrix> .
+<http://www.w3.org/2002/07/sex_and_the_city> <http://www.example.org/is_a> <http://www.w3.org/2002/07/tv_show> .
+<http://www.w3.org/2002/07/the_matrix> <http://www.example.org/is_a> <http://www.w3.org/2002/07/movie> .
+<http://www.w3.org/2002/07/chris_noth> <http://www.example.org/starred_in> <http://www.w3.org/2002/07/sex_and_the_city> .
+<http://www.w3.org/2002/07/the_thirteenth_floor> <http://www.example.org/released_in> "1999" .
+<http://www.w3.org/2002/07/the_matrix> <http://www.example.org/released> "1999" .
+<http://www.w3.org/2002/07/vincent_donofrio> <http://www.example.org/has_name> " Vicent Donofrio" .
