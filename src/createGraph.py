@@ -6,6 +6,7 @@ fin = open('/Users/amritaanam/Documents/drugbank/drugbank/db_c.cql', 'r')
 data = fin.readlines()
 print data[0]
 print data[1]
+
 data1 = filter(lambda a: a != data[1], data)
 print len(data), len(data1)
 
