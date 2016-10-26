@@ -1,7 +1,8 @@
 import re
 import datetime
 
-fin = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump.nt', 'r')
+fin = open('/Users/amritaanam/Documents/bigGraphProject/bigGraphProject/sample_data/drugbank/test.nt', 'r')
+
 
 data = fin.readlines()
 
@@ -26,17 +27,21 @@ for line in data:
     if sub not in uri_list:
         uri_list.append(sub)
         node = uri_list[-1].split("/")
-        node_list.append({'type_node': node[-1], 'source': '/'.join(node)})
+
+        node_type = re.sub('[^A-Za-z0-9]+', '', node[-1])
+        node_list.append({'type_node': 'node_'+ node_type, 'source': '/'.join(node)})
 
     if (obj.find("http") != -1) and (obj not in uri_list):
         uri_list.append(obj)
         node = uri_list[-1].split("/")
-        node_list.append({'type_node': node[-1], 'source': '/'.join(node)})
+        node_type = re.sub('[^A-Za-z0-9]+', '', node[-1])
+        node_list.append({'type_node': 'node_'+ node_type, 'source': '/'.join(node)})
 
     if pre not in pre_list:
         pre_list.append(pre)
         new_pre = pre_list[-1].split("/")
-        property_list.append({'type_rel':new_pre[-1], 'source':'/'.join(new_pre)})
+        pre_type = re.sub('[^A-Za-z0-9]+', '', new_pre[-1])
+        property_list.append({'type_rel':'rel_'+ pre_type, 'source':'/'.join(new_pre)})
 
     count = count+1
     if count%1000 == 0:
@@ -49,7 +54,7 @@ for line in data:
 node_list = filter(None, node_list)
 property_list = filter(None, property_list)
 
-with open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump_schema.txt', 'w') as fout:
+with open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank/test_schema.txt', 'w') as fout:
     for node in node_list:
         fout.write(str(node))
         fout.write("\n")

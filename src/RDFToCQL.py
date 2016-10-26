@@ -1,8 +1,8 @@
 import re
 import datetime
-fin_schema = "/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump_schema.txt"
-fin_data = "/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump.nt"
-fout_cql = "/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump.cql"
+fin_schema = "/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump_schema_mod.txt"
+fin_data = "/Users/amritaanam/Documents/bigGraphProject/bigGraphProject/sample_data/drugbank/drugbank_dump.nt"
+fout_cql = "/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank_dump_mod.cql"
 
 nt_schema = []
 source = []
