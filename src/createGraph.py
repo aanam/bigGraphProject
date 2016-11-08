@@ -1,9 +1,10 @@
 from neo4j.v1 import GraphDatabase, basic_auth
 import datetime
 #fin = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/test_movie.cql', 'r')
-fin = open('/Users/amritaanam/Documents/drugbank/drugbank/db_c.cql', 'r')
+fin = open('/Users/amritaanam/Documents/GIT_Repo/bigGraphProject/sample_data/drugbank/V3/drugbank_lits_8.cql', 'r')
 
 data = fin.readlines()
+data = data
 print data[0]
 print data[1]
 
@@ -20,12 +21,12 @@ set = 0
 
 time1 = datetime.datetime.now()
 
-for i in range(0,10000):
-    if data1[i].find("CREATE")!=-1:
+for i in range(0,len(data1)):
+    if data1[i].find("CREATE")>-1:
         create = create+1
-    if data1[i].find("MERGE")>0:
+    if data1[i].find("MERGE")>-1:
         merge = merge+1
-    if data1[i].find("SET")>0:
+    if data1[i].find("SET")>-1:
         set = set+1
 
     try:
@@ -34,7 +35,7 @@ for i in range(0,10000):
     except:
         print i, data1[i]
 
-    if i%10000==0:
+    if i%1000==0:
         print i
 
 
